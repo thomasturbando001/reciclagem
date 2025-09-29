@@ -1,0 +1,384 @@
+/* ===== PARTE 1: IMPORTANDO FONTE DO GOOGLE FONTS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+/*
+  @import: Importa recursos externos (neste caso, uma fonte)
+  Google Fonts: Biblioteca gratuita de fontes web
+  Open+Sans: Nome da fonte escolhida
+  ital,wght@0,300..800;1,300..800: Variações disponíveis
+  - 0 = texto normal, 1 = itálico
+  - 300..800 = pesos da fonte (thin até extra bold)
+  display=swap: Melhora a performance no carregamento
+*/
+
+/* ===== PARTE 2: VARIÁVEIS CSS (CSS CUSTOM PROPERTIES) ===== */
+:root {
+  --color-text: #fff0c8; /* Cor do texto principal (bege claro) */
+  --color-buttom: #60804d; /* Cor dos botões e elementos interativos (verde escuro) */
+  --font-padrao: "Open Sans", Verdana; /* Fonte padrão com fallback */
+}
+/*
+  :root: Seletor especial que representa o elemento raiz do documento
+  Variáveis CSS (--nome): Valores que podem ser reutilizados em todo o CSS
+  Vantagens:
+  - Facilita mudanças de cor/fonte em um só lugar
+  - Mantém consistência visual
+  - Facilita manutenção do código
+  
+  Fallback em fontes: Se "Open Sans" não carregar, usa "Verdana"
+*/
+
+/* ===== PARTE 3: RESET CSS ===== */
+* {
+  margin: 0; /* Remove margem padrão de todos os elementos */
+  padding: 0; /* Remove padding padrão de todos os elementos */
+  box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+}
+/*
+  * (asterisco): Seletor universal - aplica a TODOS os elementos
+  Reset CSS: Remove estilos padrão do navegador para ter controle total
+  
+  box-sizing: border-box: 
+  - Modo padrão: largura = conteúdo (padding e border adicionados por fora)
+  - border-box: largura = conteúdo + padding + border
+  - Facilita muito o cálculo de layouts!
+*/
+
+/* ===== PARTE 4: ESTILO DO CORPO DA PÁGINA ===== */
+body {
+  display: flex; /* Ativa o Flexbox */
+  align-items: center; /* Centraliza verticalmente */
+  flex-direction: column; /* Organiza elementos em coluna (um abaixo do outro) */
+  justify-content: space-between; /* Distribui espaço: header no topo, footer embaixo */
+  background: #306b34; /* Cor de fundo verde */
+  height: 100vh; /* Altura = 100% da viewport (tela visível) */
+  font-family: var(--font-padrao); /* Usa a fonte definida na variável */
+}
+/*
+  Flexbox: Sistema de layout moderno e poderoso
+  - display: flex transforma o elemento em um contêiner flexível
+  - flex-direction: column faz os filhos ficarem em coluna
+  - justify-content: space-between empurra primeiro item para cima, último para baixo
+  - align-items: center centraliza horizontalmente
+  
+  100vh = 100% da altura da viewport (tela visível do navegador)
+  var(--variável): Usa o valor definido nas variáveis CSS
+*/
+
+/* ===== PARTE 5: ESTILO DO CABEÇALHO ===== */
+header {
+  width: 100%; /* Largura total da tela */
+  display: flex; /* Flexbox para centralizar o logo */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  padding-top: 40px; /* Espaço acima do header */
+}
+/*
+  Header ocupa 100% da largura e centraliza seu conteúdo
+  padding-top: adiciona espaço interno na parte superior
+*/
+
+/* ===== PARTE 6: ESTILO DA IMAGEM DO LOGO ===== */
+#logo-img {
+  width: 400px; /* Largura fixa do logo */
+}
+/*
+  # = seletor de ID (seleciona elemento com id="logo-img")
+  Largura fixa garante que o logo tenha tamanho consistente
+*/
+
+/* ===== PARTE 7: ESTILO DO CONTEÚDO PRINCIPAL ===== */
+.conteudo-principal {
+  width: 100%; /* Largura total */
+  margin: 0 auto; /* Centraliza horizontalmente (quando não é 100%) */
+  text-align: center; /* Centraliza texto */
+  display: flex; /* Flexbox */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-direction: column; /* Organiza em coluna */
+}
+/*
+  . = seletor de classe (seleciona elementos com class="conteudo-principal")
+  margin: 0 auto: 0 para cima/baixo, auto para esquerda/direita (centraliza)
+  text-align: center: centraliza textos dentro deste elemento
+*/
+
+/* ===== PARTE 8: ESTILO DA ÁREA DAS PERGUNTAS ===== */
+.enunciado-principal {
+  width: 60%; /* 60% da largura da tela */
+  color: var(--color-text); /* Usa cor definida na variável */
+  font-weight: 500; /* Peso da fonte (500 = meio negrito) */
+  font-size: 3rem; /* Tamanho da fonte (3rem = 3x o tamanho padrão) */
+  padding: 40px; /* Espaço interno em todas as direções */
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Organiza em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+}
+/*
+  rem: Unidade relativa baseada no tamanho da fonte do elemento raiz
+  - 1rem = tamanho padrão da fonte (geralmente 16px)
+  - 3rem = 3 × 16px = 48px
+  
+  font-weight: 500 = meio-termo entre normal (400) e negrito (700)
+*/
+
+/* ===== PARTE 9: ESTILO DOS BOTÕES ===== */
+button {
+  border: none; /* Remove borda padrão */
+  padding: 15px; /* Espaço interno */
+  border-radius: 15px; /* Cantos arredondados */
+  color: var(--color-text); /* Cor do texto */
+  background: var(--color-buttom); /* Cor de fundo */
+  font-size: 2rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Muda cursor para "mãozinha" */
+}
+/*
+  border: none: Remove borda padrão dos botões (que geralmente é feia)
+  border-radius: Arredonda os cantos (15px = bem arredondado)
+  cursor: pointer: Indica que o elemento é clicável
+*/
+
+/* ===== PARTE 10: ESTILO DO RODAPÉ ===== */
+footer p {
+  text-align: center; /* Centraliza texto */
+  font-family: var(--font-padrao); /* Fonte padrão */
+  color: var(--color-text); /* Cor do texto */
+  padding: 20px; /* Espaço interno */
+}
+/*
+  Seletor descendente: "footer p" = parágrafos dentro de footer
+  Aplica estilo apenas aos <p> que estão dentro de <footer>
+*/
+
+footer p a {
+  text-decoration: none; /* Remove sublinhado padrão dos links */
+  color: var(--color-text); /* Cor do link */
+  text-decoration: underline; /* Adiciona sublinhado personalizado */
+}
+/*
+  footer p a: Links dentro de parágrafos dentro de footer
+  Seletor específico para ter controle preciso do estilo
+*/
+
+/* ===== PARTE 11: ESTILO DO CAMPO DE TEXTO (NOME) ===== */
+.input-text {
+  width: 300px; /* Largura fixa */
+  border: none; /* Sem borda */
+  outline: none; /* Remove contorno azul do foco */
+  padding: 15px; /* Espaço interno */
+  border-radius: 10px; /* Cantos arredondados */
+  background: var(--color-buttom); /* Cor de fundo */
+  color: var(--color-text); /* Cor do texto */
+  font-size: 1.5rem; /* Tamanho da fonte */
+  text-align: center; /* Centraliza texto digitado */
+}
+/*
+  outline: none remove o contorno azul que aparece quando o campo está selecionado
+  Cuidado: sempre fornecer alguma indicação visual alternativa para acessibilidade
+*/
+
+/* ===== PARTE 12: ESTILO DO CURSOR NO INPUT ===== */
+input {
+  caret-color: var(--color-buttom); /* Cor do cursor de digitação */
+}
+/*
+  caret-color: Controla a cor da "barrinha" que pisca quando você está digitando
+  Aplica a todos os inputs da página
+*/
+
+/* ===== PARTE 13: ESTILO DO PLACEHOLDER ===== */
+.input-text::placeholder {
+  color: var(--color-text); /* Cor do texto de exemplo */
+  text-align: center; /* Centraliza placeholder */
+  font-size: 1.5rem; /* Tamanho da fonte */
+  padding: 15px; /* Espaço interno */
+  opacity: 0.5; /* 50% de transparência (mais claro) */
+  caret-color: var(--color-text); /* Cor do cursor */
+}
+/*
+  ::placeholder: Pseudo-elemento que seleciona o texto de exemplo dos inputs
+  opacity: 0.5 deixa o texto mais claro (50% transparente)
+  Placeholder é o texto que aparece quando o campo está vazio
+*/
+
+/* ===== PARTE 14: ESTILO DA BARRA DESLIZANTE ===== */
+.input-range {
+  accent-color: var(--color-buttom); /* Cor da parte ativa da barra */
+  margin-top: 40px; /* Espaço acima */
+  width: 80%; /* 80% da largura do container pai */
+}
+/*
+  accent-color: Propriedade moderna que muda a cor de elementos interativos
+  Funciona com range, checkbox, radio, etc.
+  width: 80% torna a barra responsiva (se adapta ao tamanho da tela)
+*/
+
+/* ===== PARTE 15: ESTILO DO CAMPO NUMÉRICO ===== */
+.input-number {
+  border: none; /* Sem borda */
+  outline: none; /* Sem contorno de foco */
+  background: var(--color-buttom); /* Cor de fundo */
+  border-radius: 20px; /* Cantos bem arredondados */
+  margin-top: 40px; /* Espaço acima */
+  width: 150px; /* Largura menor (para números) */
+  padding: 20px; /* Espaço interno */
+  font-size: 1.5rem; /* Tamanho da fonte */
+  color: var(--color-text); /* Cor do texto */
+}
+/*
+  Campo numérico é menor que campo de texto pois números ocupam menos espaço
+  border-radius: 20px deixa mais arredondado que o campo de texto (10px)
+*/
+
+/* ===== PARTE 16: ESTILO DA CAIXA DOS BOTÕES DE RÁDIO ===== */
+.input-box {
+  display: flex; /* Flexbox */
+  flex-direction: row-reverse; /* Inverte ordem (Sim aparece à direita) */
+  justify-content: center; /* Centraliza */
+  width: 100%; /* Largura total */
+}
+/*
+  flex-direction: row-reverse inverte a ordem dos elementos
+  Normal: [Não] [Sim]
+  Invertido: [Sim] [Não]
+*/
+
+/* ===== PARTE 17: ESTILO DE CADA BOTÃO DE RÁDIO ===== */
+.radio {
+  display: flex; /* Flexbox */
+  flex-direction: row; /* Organiza botão e texto lado a lado */
+  margin: 20px; /* Espaço ao redor */
+}
+/*
+  Cada botão de rádio fica em uma caixa flexível individual
+  margin: 20px adiciona espaço entre os botões
+*/
+
+.radio label {
+  margin-left: 15px; /* Espaço entre botão e texto */
+  font-size: 2rem; /* Tamanho da fonte do texto */
+}
+/*
+  Seletor descendente: labels dentro de .radio
+  margin-left: afasta o texto do botão
+*/
+
+.radio input {
+  width: 1.5rem; /* Tamanho do botão */
+  accent-color: var(--color-buttom); /* Cor quando selecionado */
+}
+/*
+  Tamanho fixo para os botões de rádio
+  accent-color personaliza a cor de seleção
+*/
+
+/* ===== PARTE 18: ESTILO DA IMAGEM DE RESULTADO ===== */
+.img-planeta {
+  width: 250px; /* Largura da imagem dos planetas */
+}
+
+/* ===== PARTE 19: ESTILO DO TEXTO DE RESULTADO ===== */
+.qtd-planetas {
+  margin-left: 20px; /* Espaço à esquerda */
+  font-size: 2.5rem; /* Tamanho grande */
+  font-style: italic; /* Texto em itálico */
+  font-weight: bold; /* Texto em negrito */
+}
+/*
+  Combina itálico + negrito para dar destaque ao resultado
+*/
+
+/* ===== PARTE 20: ESTILO DA DIV DE RESULTADO ===== */
+.resultado-div {
+  display: flex; /* Flexbox */
+  flex-direction: row; /* Organiza imagem e texto lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: space-between; /* Distribui espaço entre elementos */
+}
+/*
+  Layout horizontal para imagem + texto do resultado
+  space-between: máximo espaço possível entre os elementos
+*/
+
+/* ===== PARTE 21: ESTILO DAS DESCRIÇÕES DO RESULTADO ===== */
+.descricao-resultado {
+  font-size: 2.5rem; /* Tamanho grande para destaque */
+  margin: 0.5rem; /* Pequeno espaço ao redor */
+}
+/*
+  Textos explicativos na tela de resultado
+  margin: 0.5rem adiciona um pequeno respiro entre os parágrafos
+*/
+
+/* ===== PARTE 22: MEDIA QUERY PARA DISPOSITIVOS MÓVEIS ===== */
+@media (max-width: 475px) {
+  /* Aplica estes estilos apenas quando a tela for menor que 475px */
+
+  #logo-img {
+    width: 300px; /* Logo menor no celular */
+  }
+
+  .descricao-resultado {
+    font-size: 1.5rem; /* Texto menor */
+  }
+
+  .img-planeta {
+    width: 150px; /* Imagem menor */
+  }
+
+  .qtd-planetas {
+    font-size: 1.5rem; /* Resultado menor */
+  }
+
+  .enunciado-principal {
+    font-size: 1.5rem; /* Perguntas com fonte menor */
+  }
+}
+/*
+  @media: Regra condicional - aplica CSS apenas em certas condições
+  max-width: 475px: Quando a largura da tela for 475px ou menor
+  
+  Design Responsivo: O site se adapta a diferentes tamanhos de tela
+  Mobile-first: Primeiro funciona bem no celular, depois adapta para desktop
+  
+  Breakpoints comuns:
+  - 475px: Smartphones
+  - 768px: Tablets  
+  - 1024px: Desktops pequenos
+  - 1200px: Desktops grandes
+*/
+
+/* ===== CONCEITOS IMPORTANTES EXPLICADOS ===== */
+
+/*
+1. SELETORES CSS:
+   - * : Todos os elementos
+   - elemento : Tags HTML (body, header, button)
+   - #id : Elemento com ID específico
+   - .classe : Elementos com classe específica
+   - pai filho : Elementos filhos dentro de pais
+
+2. FLEXBOX:
+   - Sistema de layout moderno
+   - display: flex ativa o flexbox
+   - flex-direction: define direção (row/column)
+   - justify-content: alinha no eixo principal
+   - align-items: alinha no eixo perpendicular
+
+3. UNIDADES:
+   - px: Pixels (fixo)
+   - rem: Relativo ao tamanho da fonte raiz
+   - %: Porcentagem do elemento pai
+   - vh/vw: Porcentagem da viewport (tela)
+
+4. VARIÁVEIS CSS:
+   - --nome: Define variável
+   - var(--nome): Usa variável
+   - Facilita manutenção e consistência
+
+5. RESPONSIVIDADE:
+   - @media queries: CSS condicional
+   - Design que se adapta a diferentes telas
+   - Mobile-first: Prioriza dispositivos móveis
+*/
